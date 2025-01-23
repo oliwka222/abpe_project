@@ -1,13 +1,14 @@
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
+import java.nio.charset.StandardCharsets;
 
 public class FileEncryptor {
 
     private static final String ALGORITHM = "AES";
 
     public static SecretKey generateKey(String password) throws Exception {
-        byte[] key = password.getBytes("UTF-8");
+        byte[] key = password.getBytes(StandardCharsets.UTF_8);
         key = java.security.MessageDigest.getInstance("SHA-256").digest(key);
         return new SecretKeySpec(key, 0, 16, ALGORITHM);
     }
