@@ -6,7 +6,7 @@ public class MainApp {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome to the Secure File Encryption System!");
+        System.out.println("Welcome to the File Encryption System!");
 
         try {
             while (true) {
@@ -17,7 +17,7 @@ public class MainApp {
                 System.out.println("4. Exit");
                 System.out.print("Choose an option: ");
                 int choice = scanner.nextInt();
-                scanner.nextLine(); // Consume newline
+                scanner.nextLine();
 
                 if (choice == 4) {
                     System.out.println("Exiting... Goodbye!");
