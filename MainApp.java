@@ -43,7 +43,9 @@ public class MainApp {
                         String encryptedFilePath = scanner.nextLine();
                         File encryptedFile = new File(encryptedFilePath);
 
-                        FileEncryptor.encryptFile(file, encryptedFile, key);
+                        byte[] fileBytes = FileReader.readFile(file);
+                        byte[] encryptedBytes = FileEncryptor.encryptData(fileBytes, key);
+                        FileReader.writeFile(encryptedFile, encryptedBytes);
                         System.out.println("File encrypted successfully!");
                         break;
 
@@ -56,7 +58,9 @@ public class MainApp {
                         String decryptedFilePath = scanner.nextLine();
                         File decryptedFile = new File(decryptedFilePath);
 
-                        FileEncryptor.decryptFile(file, decryptedFile, key);
+                        fileBytes = FileReader.readFile(file);
+                        byte[] decryptedBytes = FileEncryptor.decryptData(fileBytes, key);
+                        FileReader.writeFile(decryptedFile, decryptedBytes);
                         System.out.println("File decrypted successfully!");
                         break;
 
